@@ -12,11 +12,11 @@ from numpynet.losses import MSE
 # Create the model
 model = Model(loss=MSE())
 
-model.add_layer(Linear(784, 1200))
+model.add_layer(Linear(784, 512))
 model.add_layer(ReLU())
-model.add_layer(Linear(1200, 800))
+model.add_layer(Linear(512, 256))
 model.add_layer(ReLU())
-model.add_layer(Linear(800, 10))
+model.add_layer(Linear(256, 10))
 
 # Load mnist
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
@@ -26,7 +26,7 @@ train_labels = to_categorical(train_labels)
 test_labels = to_categorical(test_labels)
 
 # Training settings
-epochs = 25
+epochs = 15 
 batch_size = 16
 learning_rate = 0.075
 

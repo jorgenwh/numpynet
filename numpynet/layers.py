@@ -67,4 +67,4 @@ class Linear(_Layer):
     self.gradb *= 0
 
   def get_parameters(self) -> Tuple[np.ndarray, np.ndarray]:
-    return (self.b, self.W)
+    return (self.W, self.b)
