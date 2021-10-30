@@ -68,6 +68,7 @@ for e in range(epochs):
   output = model(test_images, grad=False)
   val_loss = model.loss(output, test_labels, grad=False)
 
+  # Compute the validation accuracy
   for i in range(10_000):
     val_acc += np.argmax(output[i]) == np.argmax(test_labels[i])
   val_acc /= 10_000

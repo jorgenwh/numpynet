@@ -1,4 +1,5 @@
 import numpy as np
+from typing import List
 from numpynet.nn.layers import _Layer
 from numpynet.nn.losses import _Loss
 
@@ -36,4 +37,8 @@ class Model():
       if isinstance(layer, _Layer):
         layer.zero_grad()
 
-  
+  def get_parameters(self) -> List[np.ndarray]:
+    parameters = []
+    for layer in self.layers:
+      if isinstance(layer, _Layer):
+        parameters.append(layer.get_parameters())

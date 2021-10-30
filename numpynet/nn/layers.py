@@ -1,4 +1,5 @@
 import numpy as np
+from typing import Tuple
 from math import sqrt
 from numpynet.nn.gate import _Gate
 
@@ -20,6 +21,9 @@ class _Layer(_Gate):
 
   def zero_grad(self):
     raise NotImplementedError("zero_grad has not been implemented for this layer object.")
+
+  def get_parameters(self):
+    raise NotImplementedError("get_parameters has not been implemented for this layer object.")
 
     
 class Linear(_Layer):
@@ -61,3 +65,6 @@ class Linear(_Layer):
   def zero_grad(self) -> None:
     self.gradW *= 0
     self.gradb *= 0
+
+  def get_parameters(self) -> Tuple[np.ndarray, np.ndarray]:
+    return (self.b, self.W)
