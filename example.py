@@ -4,20 +4,19 @@ import math
 from keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 
-from numpynet.nn.model import Model
-from numpynet.nn.layers import Linear
-from numpynet.nn.activations import ReLU
-from numpynet.nn.losses import MSE
+from numpynet.model import Model
+from numpynet.layers import Linear
+from numpynet.activations import ReLU
+from numpynet.losses import MSE
 
 # Create the model
-loss = MSE()
-model = Model(loss)
+model = Model(loss=MSE())
 
-model.add_layer(Linear(784, 256))
+model.add_layer(Linear(784, 1200))
 model.add_layer(ReLU())
-model.add_layer(Linear(256, 256))
+model.add_layer(Linear(1200, 800))
 model.add_layer(ReLU())
-model.add_layer(Linear(256, 10))
+model.add_layer(Linear(800, 10))
 
 # Load mnist
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
@@ -27,9 +26,9 @@ train_labels = to_categorical(train_labels)
 test_labels = to_categorical(test_labels)
 
 # Training settings
-epochs = 10
+epochs = 25
 batch_size = 16
-learning_rate = 0.01
+learning_rate = 0.075
 
 n_batches = math.ceil(60_000 / batch_size)
 

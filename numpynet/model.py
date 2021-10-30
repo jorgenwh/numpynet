@@ -1,7 +1,7 @@
 import numpy as np
 from typing import List
-from numpynet.nn.layers import _Layer
-from numpynet.nn.losses import _Loss
+from numpynet.layers import _Layer
+from numpynet.losses import _Loss
 
 class Model():
   def __init__(self, loss: _Loss):

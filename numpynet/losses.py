@@ -1,5 +1,5 @@
 import numpy as np
-from numpynet.nn.gate import _Gate
+from numpynet.gate import _Gate
 
 class _Loss(_Gate):
   def __init__(self):

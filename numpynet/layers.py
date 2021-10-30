@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Tuple
 from math import sqrt
-from numpynet.nn.gate import _Gate
+from numpynet.gate import _Gate
 
 class _Layer(_Gate):
   def __init__(self, *args, **kwargs):
