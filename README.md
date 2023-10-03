@@ -17,10 +17,10 @@ pip install .
 A very simple mnist example can be found in example.py, but to summarize the VERY limited current functionality
 ```python
 import numpy as np
-from numpynet.model import Model
-from numpynet.layers import Linear
-from numpynet.activations import ReLU
-from numpynet.losses import MSE
+from numpynet import Model
+from numpynet import Linear
+from numpynet import ReLU
+from numpynet import MSE
 
 # The model object takes a loss function object, so we create a MSE loss object
 # to pass to the model constructor
